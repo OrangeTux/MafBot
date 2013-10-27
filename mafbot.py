@@ -16,6 +16,14 @@ logger.addHandler(handler)
 
 if __name__ == '__main__':
     from mafbot.actions import do_crime
+    import time
+
     logger.debug('Starting mafbot')
 
-    do_crime()
+    try:
+        while True:
+            do_crime()
+            time.sleep(60)
+    except Exception as e:
+        print e
+
