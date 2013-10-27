@@ -1,9 +1,17 @@
-from mafbot.utils import get, click_captcha
+from mafbot.utils import get, captcha
 from mafbot import driver
 
 @get('/crimes')
-def do_crime():
-    crime = driver.find_element_by_xpath('//table[@class="content_table"]//input[@value="1"]')
+@captcha
+def do_crime(option=1):
+    xpath = '//table[@class="content_table"]//input[@value="%s"]' % option
+    crime = driver.find_element_by_xpath(xpath)
     crime.click()
 
-    click_captcha()
+
+@get('/cars/steal')
+@captcha
+def steal_car(option=1):
+    xpath = '//table[@class="content_table"]//input[@value="%s"]' % option
+    crime = driver.find_element_by_xpath(xpath)
+    crime.click()
