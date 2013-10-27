@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     try:
         while True:
-            do_crime()
+            do_crime(2)
             time.sleep(60)
     except Exception as e:
         print e

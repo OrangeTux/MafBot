@@ -34,7 +34,8 @@ def captcha(f):
     """ Docorator which 'clicks on a captcha to submit an action. """
     @wraps(f)
     def inner(*args, **kwargs):
-        f()
+        f(*args, **kwargs)
+
         screen_path = '/tmp/screen.png'
         button_path = '/tmp/button.png'
 
