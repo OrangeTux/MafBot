@@ -53,6 +53,8 @@ def captcha(f):
             button_img = screen_img.crop(dimensions)
             button_img.save(button_path)
 
+            # I don't know what this does, exactly,
+            # but in the new version ( and tested in py2.7, it doesn't work anymore.)
             rms = math.sqrt(functools.reduce(operator.add,map(lambda a,b: (a-b)**2, ref_button.histogram(), button_img.histogram()))/len(ref_button.histogram()))
 
             if len(lowest_rms) == 0 or rms < lowest_rms[1]:
