@@ -49,8 +49,7 @@ def captcha(f):
 
         lowest_rms = ()
         for button in submit_buttons:
-            dimensions = (button.location['x'], button.location['y'], button.location['x'] + button.size['width'], button.location['y'] + button.size['height'])
-
+            dimensions = (int(button.location['x']), int(button.location['y']), int(button.location['x']) + int(button.size['width']), int(button.location['y']) + int(button.size['height']))
             button_img = screen_img.crop(dimensions)
             button_img.save(button_path)
 
