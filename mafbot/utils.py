@@ -3,7 +3,7 @@ import re
 from PIL import Image
 import math
 import operator
-
+import functools
 from mafbot import driver
 from mafbot.authentication import login
 
@@ -53,7 +53,7 @@ def captcha(f):
             button_img = screen_img.crop(dimensions)
             button_img.save(button_path)
 
-            rms = math.sqrt(reduce(operator.add,map(lambda a,b: (a-b)**2, ref_button.histogram(), button_img.histogram()))/len(ref_button.histogram()))
+            rms = math.sqrt(functools.reduce(operator.add,map(lambda a,b: (a-b)**2, ref_button.histogram(), button_img.histogram()))/len(ref_button.histogram()))
 
             if len(lowest_rms) == 0 or rms < lowest_rms[1]:
                 lowest_rms = (button, rms)
