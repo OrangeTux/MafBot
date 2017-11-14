@@ -25,5 +25,5 @@ if __name__ == '__main__':
             do_crime(1)
             time.sleep(60)
     except Exception as e:
-        print e
+        print(e)
 

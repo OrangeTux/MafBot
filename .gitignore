@@ -2,6 +2,7 @@
 *.pyc
 *.pio
 .env/
+geckodriver.log
 
 # Misc
 conf.py
